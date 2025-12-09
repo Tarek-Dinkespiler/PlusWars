@@ -16,7 +16,7 @@ Si les **Étapes 1 et 2** ne sont pas atteintes rapidement, le projet est abando
 But : avoir une app Next.js en ligne avec une page d’accueil minimale.
 
 - [x] Créer le repository privé
-- [ ] Créer la base du projet Next.js (Pages Router)
+- [x] Créer la base du projet Next.js (Pages Router)
 - [ ] Ajouter Material UI (MUI) et vérifier que ça compile
 - [ ] Créer une page d’accueil très simple (`pages/index.tsx`) avec du texte statique
 - [ ] Configurer le déploiement (Netlify ou Vercel)
