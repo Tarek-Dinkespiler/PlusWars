@@ -1,8 +1,5 @@
-local_backend: true
-
 backend:
-  name: github
-  repo: Tarek-Dinkespiler/ALN
+  name: git-gateway
   branch: main
 
 media_folder: "public/uploads"
