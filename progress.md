@@ -52,7 +52,7 @@ But : la page d’accueil affiche les données venant du CMS, plus du tout de te
 - [x] Ajouter un petit utilitaire pour lire `content/homepage.md` (à build-time ou runtime)
 - [x] Remplacer le texte statique de `pages/index.tsx` par les valeurs du fichier (`title`, `subtitle`, `content`)
 - [x] Vérifier que la home affiche le contenu issu de `homepage.md` en local
-- [ ] Vérifier que ça fonctionne aussi sur l’environnement déployé (Netlify/Vercel)
+- [x] Vérifier que ça fonctionne aussi sur l’environnement déployé (Netlify/Vercel)
 
 **Critère de succès :**  
 Modifier la home dans `/admin/index.html` → redéploiement → le texte change réellement sur le site.
@@ -63,10 +63,10 @@ Modifier la home dans `/admin/index.html` → redéploiement → le texte change
 
 But : valider une boucle complète de mise à jour de contenu.
 
-- [ ] Depuis `/admin/index.html`, modifier le titre de la home
-- [ ] Vérifier qu’un commit (ou équivalent) est créé dans le repo distant
-- [ ] Vérifier que le build Netlify/Vercel est déclenché
-- [ ] Vérifier que le nouveau titre apparaît sur la home en production
+- [x] Depuis `/admin/index.html`, modifier le titre de la home
+- [x] Vérifier qu’un commit (ou équivalent) est créé dans le repo distant
+- [x] Vérifier que le build Netlify/Vercel est déclenché
+- [x] Vérifier que le nouveau titre apparaît sur la home en production
 
 **Critère de succès :**  
 Le site en ligne change via le CMS, sans intervention manuelle sur le code.
