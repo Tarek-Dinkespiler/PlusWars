@@ -1,4 +1,4 @@
-# ALN - modernisation du site Armor Loisirs Nautiques
+# ALN - Modernisation du site Armor Loisirs Nautiques
 
 Ce projet a pour objectif d’explorer la création d’une version modernisée du site actuel d’Armor Loisirs Nautiques.  
 Il s’agit d’un exercice technique, avec un focus sur la rapidité, l’efficacité et l’amélioration de l’expérience de gestion de contenu.
@@ -29,7 +29,36 @@ Il s’agit d’un exercice technique, avec un focus sur la rapidité, l’effic
 - **Mise en page minimaliste** : l’information est présente mais pourrait être mieux hiérarchisée et valorisée.
 - **Manque de modularité** : pas de modèles pour les balades, locations, services ou bateaux en vente, ce qui complique les mises à jour.
 - **Page photos sous-exploitée** : alors que de nombreuses images existent ailleurs (réseaux sociaux, Office du tourisme).
-- **Medium Video sous-exploité** : à cause de la difficulté technique que cela représente.
+- **Usage vidéo limité** : le site tirerait profit d’une intégration vidéo simple et gérable pour le client.
+
+---
+
+## 🧰 Choix techniques
+
+### **Next.js**
+
+- Framework moderne, stable et largement adopté.
+- Routing clair et intuitif, adapté à un site vitrine.
+- Excellente prise en charge du rendu statique et des performances.
+
+### **Material UI (MUI)**
+
+- Large collection de composants fiables et éprouvés.
+- Design cohérent, accessible et facilement personnalisable.
+- Permet de reproduire rapidement un layout simple et familier.
+
+### **Decap CMS (ex-Netlify CMS)**
+
+- Interface d’admin accessible via navigateur, sans installation.
+- Édition du contenu via formulaires, sans toucher au code.
+- Fonctionne entièrement avec des fichiers Markdown versionnés dans Git.
+- Déploiement automatisé et transparent pour le client.
+
+### **Déploiement sur Netlify ou Vercel**
+
+- Hébergement gratuit ou très peu coûteux.
+- Builds automatiques à chaque mise à jour du contenu.
+- Infrastructure fiable, sans serveur ni base de données à maintenir.
 
 ---
 
