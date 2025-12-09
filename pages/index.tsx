@@ -1,21 +1,41 @@
+// pages/index.tsx
+import { GetStaticProps } from "next";
 import { Container, Typography, Box } from "@mui/material";
+import { loadHomePageContent, HomePageContent } from "../lib/homepage";
 
-export default function HomePage() {
+type HomePageProps = {
+  homepage: HomePageContent;
+};
+
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+  const homepage = loadHomePageContent();
+
+  return {
+    props: {
+      homepage,
+    },
+  };
+};
+
+export default function HomePage({ homepage }: HomePageProps) {
   return (
     <Container maxWidth="md">
       <Box sx={{ py: 6 }}>
         <Typography variant="h3" component="h1" gutterBottom>
-          Armor Loisirs Nautiques
+          {homepage.title}
         </Typography>
 
-        <Typography variant="h5" component="h2" gutterBottom>
-          Balades, locations et services nautiques en baie de Saint-Brieuc
-        </Typography>
+        {homepage.subtitle && (
+          <Typography variant="h5" component="h2" gutterBottom>
+            {homepage.subtitle}
+          </Typography>
+        )}
 
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          Ceci est une première version de travail du site. Le contenu est
-          encore statique et sera prochainement rendu éditable via un CMS.
-        </Typography>
+        {homepage.content && (
+          <Typography variant="body1" sx={{ mt: 2, whiteSpace: "pre-line" }}>
+            {homepage.content}
+          </Typography>
+        )}
       </Box>
     </Container>
   );

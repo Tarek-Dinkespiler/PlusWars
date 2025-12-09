@@ -41,7 +41,7 @@ But : rendre le contenu de la page d’accueil éditable via le CMS.
 - [x] Vérifier que l’édition dans `/admin/index.html` modifie bien `homepage.md` (ou le fichier configuré)
 
 **Critère de succès :**  
-Je peux modifier le contenu de la home dans `/admin` et voir le fichier de contenu mis à jour.
+Je peux modifier le contenu de la home dans `/admin/index.html` et voir le fichier de contenu mis à jour.
 
 ---
 
@@ -55,7 +55,7 @@ But : la page d’accueil affiche les données venant du CMS, plus du tout de te
 - [ ] Vérifier que ça fonctionne aussi sur l’environnement déployé (Netlify/Vercel)
 
 **Critère de succès :**  
-Modifier la home dans `/admin` → redéploiement → le texte change réellement sur le site.
+Modifier la home dans `/admin/index.html` → redéploiement → le texte change réellement sur le site.
 
 ---
 
