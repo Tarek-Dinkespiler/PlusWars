@@ -31,14 +31,14 @@ Un site Next.js déployé avec une page d’accueil basique.
 
 But : rendre le contenu de la page d’accueil éditable via le CMS.
 
-- [ ] Créer un répertoire `content/` dans le projet
-- [ ] Créer un premier fichier de contenu `content/homepage.md`
-- [ ] Ajouter Decap CMS dans `/public/admin/` (HTML + script)
-- [ ] Créer un fichier `config.yml` minimal pour Decap
-  - [ ] Définir une collection `pages` ou `homepage`
-  - [ ] Définir au moins 3 champs : `title`, `subtitle`, `content`
-- [ ] Vérifier que `/admin` est accessible en local
-- [ ] Vérifier que l’édition dans `/admin` modifie bien `homepage.md` (ou le fichier configuré)
+- [x] Créer un répertoire `content/` dans le projet
+- [x] Créer un premier fichier de contenu `content/homepage.md`
+- [x] Ajouter Decap CMS dans `/public/admin/` (HTML + script)
+- [x] Créer un fichier `config.yml` minimal pour Decap
+  - [x] Définir une collection `pages` ou `homepage`
+  - [x] Définir au moins 3 champs : `title`, `subtitle`, `content`
+- [x] Vérifier que `/admin/index.html` est accessible en local
+- [x] Vérifier que l’édition dans `/admin/index.html` modifie bien `homepage.md` (ou le fichier configuré)
 
 **Critère de succès :**  
 Je peux modifier le contenu de la home dans `/admin` et voir le fichier de contenu mis à jour.

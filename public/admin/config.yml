@@ -1,0 +1,21 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: Tarek-Dinkespiler/ALN
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "homepage"
+        label: "Page d'accueil"
+        file: "content/homepage.md"
+        fields:
+          - { name: "title", label: "Titre", widget: "string" }
+          - { name: "subtitle", label: "Sous-titre", widget: "string" }
+          - { name: "content", label: "Contenu", widget: "text" }
