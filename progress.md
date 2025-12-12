@@ -3,8 +3,9 @@
 Objectif :  
 Valider un flux complet **Next.js + Decap CMS + déploiement** avec :
 
-- une page d’accueil éditable via CMS
-- une page "Ventes" minimale (texte + liste simple)
+- une page d’accueil éditable, orientée conversion
+- une structure claire Services / Occasions
+- une galerie photo/vidéo attractive
 
 Temps cible total : ~5 h  
 Si les **Étapes 1 et 2** ne sont pas atteintes rapidement, le projet est abandonné sans regret.
@@ -99,7 +100,62 @@ But : ajouter un layout global propre et cohérent (header + footer + navigation
 
 ---
 
-## Étape 6 — Page "Ventes" minimale
+## Étape 6 — Clarifier l’architecture de l’information
+
+But : définir une structure de site simple, compréhensible et sans redondance.
+
+- [x] Identifier les catégories de services :
+  - [x] **Services** (balades, location, activités pour personnes sans bateau)
+  - [x] **Occasions bateau** (vente, public local / connaisseur)
+- [x] Définir la navigation principale :
+  - [x] Accueil
+  - [x] Services
+  - [x] Occasions bateau
+  - [x] Contact
+  - [x] CTA permanent : Réserver
+- [x] Définir le rôle de l’accueil :
+  - [x] Page d’orientation (pas de détails)
+  - [x] Hero + chemins utilisateurs + galerie
+- [x] Décider de la structure de la galerie :
+  - [x] Galerie visible sur l’accueil
+  - [x] Page dédiée `/galerie` pour le contenu complet
+
+**Critère de succès :**  
+La structure du site est validée, compréhensible en 30 secondes, sans contenu dupliqué.
+
+---
+
+## Étape 7 — Pages de structure (squelettes)
+
+But : poser toutes les pages nécessaires sans contenu final.
+
+- [x] Créer les pages :
+  - [x] `/services`
+  - [x] `/occasions-bateau`
+  - [x] `/galerie`
+- [x] Mettre à jour la navigation
+- [x] Vérifier le rendu de chaque page
+
+**Critère de succès :**  
+Toutes les routes existent et sont accessibles via la navbar.
+
+---
+
+## Étape 8 — Galerie (contenu + visuel)
+
+But : exploiter photos/vidéos de manière attractive.
+
+- [ ] Créer une collection `gallery` dans Decap
+- [ ] Afficher une sélection sur l’accueil
+- [ ] Page `/galerie` avec lightbox
+- [ ] Vidéo courte en loop (optionnel)
+
+**Critère de succès :**  
+La galerie est visible, attractive et simple à maintenir.
+
+---
+
+## Étape 9 — Page "Ventes" minimale
 
 But : ajouter une deuxième page éditable pour simuler une petite "collection".
 

@@ -1,38 +1,53 @@
-// components/Layout.tsx
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import {
   AppBar,
   Box,
+  Button,
   Container,
+  Divider,
   Toolbar,
   Typography,
-  Button,
-  Divider,
 } from "@mui/material";
 
-type LayoutProps = {
-  children: React.ReactNode;
-};
+type LayoutProps = { children: React.ReactNode };
+
+const BOOKING_URL =
+  "https://booking.myrezapp.com/fr/online/booking/minisite/18653/armor-loisirs-nautiques";
 
 export default function Layout({ children }: LayoutProps) {
-  const year = new Date().getFullYear();
   const router = useRouter();
-
   const isActive = (path: string) => router.pathname === path;
+
+  const year = new Date().getFullYear();
 
   return (
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      <AppBar position="static" elevation={0} color="transparent">
-        <Toolbar sx={{ gap: 2 }}>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ fontWeight: 700, flexGrow: 1 }}
+      <AppBar position="static" elevation={0}>
+        <Toolbar
+          sx={{
+            minHeight: 72,
+            display: "grid",
+            gridTemplateColumns: "1fr auto 1fr",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          <Box
+            sx={{ justifySelf: "start", display: "flex", alignItems: "center" }}
           >
-            <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+            <Link
+              href="/"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+              aria-label="Aller à l’accueil"
+            >
               <Image
                 src="/aln.avif"
                 alt="Armor Loisirs Nautiques"
@@ -41,9 +56,17 @@ export default function Layout({ children }: LayoutProps) {
                 priority
               />
             </Link>
-          </Typography>
+          </Box>
 
-          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+          <Box
+            sx={{
+              justifySelf: "center",
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              flexWrap: "wrap",
+            }}
+          >
             <Button
               component={Link}
               href="/"
@@ -58,17 +81,54 @@ export default function Layout({ children }: LayoutProps) {
 
             <Button
               component={Link}
-              href="/ventes"
+              href="/services"
               color="inherit"
               sx={{
-                color: isActive("/ventes") ? "primary.main" : "inherit",
-                fontWeight: isActive("/ventes") ? 600 : 400,
+                color: isActive("/services") ? "primary.main" : "inherit",
+                fontWeight: isActive("/services") ? 600 : 400,
               }}
             >
-              Ventes
+              Services
             </Button>
 
-            <Button variant="contained" color="error">
+            <Button
+              component={Link}
+              href="/occasions-bateau"
+              color="inherit"
+              sx={{
+                color: isActive("/occasions-bateau")
+                  ? "primary.main"
+                  : "inherit",
+                fontWeight: isActive("/occasions-bateau") ? 600 : 400,
+              }}
+            >
+              Occasions bateau
+            </Button>
+
+            <Button
+              component={Link}
+              href="/contact"
+              color="inherit"
+              sx={{
+                color: isActive("/contact") ? "primary.main" : "inherit",
+                fontWeight: isActive("/contact") ? 600 : 400,
+              }}
+            >
+              Contact
+            </Button>
+          </Box>
+
+          <Box
+            sx={{ justifySelf: "end", display: "flex", alignItems: "center" }}
+          >
+            <Button
+              component="a"
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="contained"
+              color="error"
+            >
               Réserver
             </Button>
           </Box>
@@ -84,12 +144,10 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </Container>
 
-      <Box
-        component="footer"
-        sx={{ py: 3, bgcolor: "secondary.main", color: "white" }}
-      >
-        <Container maxWidth="md">
-          <Typography variant="body2">
+      <Box component="footer" sx={{ py: 3 }}>
+        <Divider />
+        <Container maxWidth="md" sx={{ pt: 2 }}>
+          <Typography variant="body2" color="text.secondary">
             © {year} Armor Loisirs Nautiques
           </Typography>
         </Container>
