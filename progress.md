@@ -73,7 +73,33 @@ Le site en ligne change via le CMS, sans intervention manuelle sur le code.
 
 ---
 
-## Étape 5 — Page "Ventes" minimale
+## Étape 5 — Layout global (header + footer + menu)
+
+But : ajouter un layout global propre et cohérent (header + footer + navigation)
+
+- [x] Créer `components/Layout.tsx`
+  - [x] Définir les zones : `header`, `main`, `footer`
+  - [x] Utiliser un conteneur central (`Container maxWidth="md"`)
+- [x] Ajouter un header simple
+  - [x] `AppBar` + `Toolbar`
+  - [x] Logo texte ("ALN")
+  - [x] Liens : `/` et `/ventes`
+- [x] Ajouter un footer simple
+  - [x] Texte : `© {année} Armor Loisirs Nautiques`
+- [x] Envelopper toutes les pages via `pages/_app.tsx`
+- [x] Ajuster rapidement le thème MUI
+  - [x] Couleurs primaires cohérentes
+  - [x] Typo vérifiée
+
+**Critère de succès :**
+
+- Toutes les pages utilisent le même layout
+- Navigation simple disponible
+- Style cohérent et minimal
+
+---
+
+## Étape 6 — Page "Ventes" minimale
 
 But : ajouter une deuxième page éditable pour simuler une petite "collection".
 
