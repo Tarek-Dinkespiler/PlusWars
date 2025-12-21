@@ -1,3 +1,5 @@
+local_backend: true
+
 backend:
   name: git-gateway
   branch: main
@@ -16,3 +18,33 @@ collections:
           - { name: "title", label: "Titre", widget: "string" }
           - { name: "subtitle", label: "Sous-titre", widget: "string" }
           - { name: "content", label: "Contenu", widget: "text" }
+  - name: "media"
+    label: "Médias"
+    folder: "content/media"
+    create: true
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {
+          name: "type",
+          label: "Type",
+          widget: "select",
+          options: ["photo", "video"],
+          default: "photo",
+        }
+      - { name: "src", label: "Fichier", widget: "file", required: true }
+      - {
+          name: "order",
+          label: "Ordre",
+          widget: "number",
+          value_type: "int",
+          default: 100,
+        }
+      - {
+          name: "alt",
+          label: "Texte alternatif",
+          widget: "string",
+          required: false,
+        }
+      - { name: "body", label: "Légende", widget: "markdown", required: false }
