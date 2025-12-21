@@ -86,6 +86,54 @@ Stored as YAML/Markdown in `content/constructions/` folder.
 
 ---
 
+## 🚀 Local Development
+
+### Setup & Running Servers
+
+**Install dependencies:**
+```bash
+pnpm install
+```
+
+**Run Next.js dev server** (http://localhost:3000):
+```bash
+pnpm dev
+```
+
+**Run Decap CMS admin with local backend** (http://localhost:3000/admin):
+
+In a separate terminal:
+```bash
+npx decap-server
+```
+
+Then visit `http://localhost:3000/admin` to edit content locally.
+
+### Development Workflow
+
+1. Start the Next.js dev server: `pnpm dev`
+2. (Optional) Start Decap CMS local backend: `npx decap-server`
+3. Visit:
+   - **Site**: http://localhost:3000
+   - **Admin CMS**: http://localhost:3000/admin (with local backend running)
+4. Edit content in `/content/*.yaml` directly or via Decap CMS
+5. Changes hot-reload automatically
+
+### Build & Test
+
+```bash
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+
+# Run linter
+pnpm lint
+```
+
+---
+
 ## 🧠 Development Guidelines
 
 This project uses **Claude Code** with structured agents:
