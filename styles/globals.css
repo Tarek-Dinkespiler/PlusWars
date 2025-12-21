@@ -8,8 +8,16 @@
     color-scheme: light;
   }
 
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
     @apply bg-white text-black antialiased;
+  }
+
+  html.dark body {
+    @apply bg-[#1a1a1a] text-[#f5f5f5];
   }
 
   a {
@@ -18,19 +26,37 @@
 }
 
 @layer components {
+  /* Light mode */
   .neo-window {
     @apply border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+  }
+
+  /* Dark mode */
+  .dark .neo-window {
+    @apply border-4 border-[#666] bg-[#1a1a1a] shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)];
   }
 
   .neo-btn {
     @apply border-2 border-black px-4 py-2 font-bold transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-2 active:translate-y-2;
   }
 
+  .dark .neo-btn {
+    @apply border-2 border-[#666] hover:border-[#999];
+  }
+
   .neo-btn-primary {
     @apply neo-btn bg-black text-white hover:bg-gray-800;
   }
 
+  .dark .neo-btn-primary {
+    @apply bg-[#333] text-[#f5f5f5] hover:bg-[#555] border-[#666];
+  }
+
   .neo-btn-secondary {
     @apply neo-btn bg-white text-black hover:bg-gray-100;
+  }
+
+  .dark .neo-btn-secondary {
+    @apply bg-[#333] text-[#f5f5f5] hover:bg-[#444] border-[#666];
   }
 }

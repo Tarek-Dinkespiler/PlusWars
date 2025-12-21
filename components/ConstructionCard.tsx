@@ -11,7 +11,7 @@ export default function ConstructionCard({ construction }: Props) {
   return (
     <div className="neo-window">
       {firstImage && (
-        <div className="relative w-full aspect-square bg-gray-100 overflow-hidden">
+        <div className="relative w-full aspect-square bg-gray-100 dark:bg-gray-700 overflow-hidden">
           <Image
             src={firstImage}
             alt={construction.title || "Construction"}
@@ -22,10 +22,10 @@ export default function ConstructionCard({ construction }: Props) {
       )}
       <div className="p-4">
         {construction.title && (
-          <h4 className="text-base font-bold">{construction.title}</h4>
+          <h4 className="text-base font-bold dark:text-[#f5f5f5]">{construction.title}</h4>
         )}
         {construction.description && (
-          <p className="text-sm text-gray-600 mt-2">{construction.description}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{construction.description}</p>
         )}
       </div>
     </div>
