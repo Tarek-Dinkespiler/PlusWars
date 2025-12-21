@@ -1,0 +1,20 @@
+types:
+  - name: Spinning Tops
+    slug: spinning-tops
+    image: /uploads/spinning-tops.jpg
+    description: Balancing and rotating creations
+
+  - name: Transformers
+    slug: transformers
+    image: /uploads/transformers.jpg
+    description: Shape-shifting mechanical creations
+
+  - name: Vehicles
+    slug: vehicles
+    image: /uploads/vehicles.jpg
+    description: Cars, trucks, and mobile machines
+
+  - name: Architecture
+    slug: architecture
+    image: /uploads/architecture.jpg
+    description: Buildings, structures, and geometric forms
