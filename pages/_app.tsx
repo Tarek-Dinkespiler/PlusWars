@@ -2,8 +2,9 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import Script from "next/script";
+import { appWithTranslation } from "next-i18next";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
@@ -17,3 +18,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export default appWithTranslation(App);

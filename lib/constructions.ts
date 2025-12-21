@@ -12,7 +12,18 @@ export type Construction = {
 
 const CONSTRUCTIONS_DIR = path.join(process.cwd(), "content", "constructions");
 
-export function getAllConstructions(): Construction[] {
+/**
+ * Helper to extract locale-specific value from i18n field
+ * Supports both flat strings and nested locale objects
+ */
+function getLocalizedValue(value: any, locale: string = 'en'): string | undefined {
+  if (typeof value === 'string') return value;
+  if (value && typeof value === 'object' && locale in value) return value[locale];
+  if (value && typeof value === 'object' && 'en' in value) return value['en'];
+  return undefined;
+}
+
+export function getAllConstructions(locale: string = 'en'): Construction[] {
   if (!fs.existsSync(CONSTRUCTIONS_DIR)) return [];
 
   const files = fs
@@ -28,8 +39,8 @@ export function getAllConstructions(): Construction[] {
     return {
       slug,
       type: (data.type as string) ?? "",
-      title: (data.title as string) ?? undefined,
-      description: (data.description as string) ?? undefined,
+      title: getLocalizedValue(data.title, locale) ?? undefined,
+      description: getLocalizedValue(data.description, locale) ?? undefined,
       images: (Array.isArray(data.images) ? data.images : []) as string[],
     };
   });
@@ -37,11 +48,11 @@ export function getAllConstructions(): Construction[] {
   return constructions;
 }
 
-export function getConstructionsByType(type: string): Construction[] {
-  return getAllConstructions().filter((c) => c.type === type);
+export function getConstructionsByType(type: string, locale: string = 'en'): Construction[] {
+  return getAllConstructions(locale).filter((c) => c.type === type);
 }
 
-export function getConstruction(slug: string): Construction | null {
-  const constructions = getAllConstructions();
+export function getConstruction(slug: string, locale: string = 'en'): Construction | null {
+  const constructions = getAllConstructions(locale);
   return constructions.find((c) => c.slug === slug) ?? null;
 }

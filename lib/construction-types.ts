@@ -15,7 +15,18 @@ const TYPES_PATH = path.join(
   "construction-types.yaml"
 );
 
-export function getAllConstructionTypes(): ConstructionType[] {
+/**
+ * Helper to extract locale-specific value from i18n field
+ * Supports both flat strings and nested locale objects
+ */
+function getLocalizedValue(value: any, locale: string = 'en'): string {
+  if (typeof value === 'string') return value;
+  if (value && typeof value === 'object' && locale in value) return value[locale];
+  if (value && typeof value === 'object' && 'en' in value) return value['en'];
+  return '';
+}
+
+export function getAllConstructionTypes(locale: string = 'en'): ConstructionType[] {
   if (!fs.existsSync(TYPES_PATH)) return [];
 
   const raw = fs.readFileSync(TYPES_PATH, "utf8");
@@ -29,14 +40,14 @@ export function getAllConstructionTypes(): ConstructionType[] {
     : [];
 
   return typesArray.map((item: any) => ({
-    name: item.name ?? "",
-    slug: item.slug ?? item.name?.toLowerCase().replace(/\s+/g, "-") ?? "",
+    name: getLocalizedValue(item.name, locale) ?? "",
+    slug: item.slug ?? item.name?.toLowerCase?.().replace(/\s+/g, "-") ?? "",
     image: item.image ?? "",
-    description: item.description ?? "",
+    description: getLocalizedValue(item.description, locale) ?? "",
   }));
 }
 
-export function getConstructionType(slug: string): ConstructionType | null {
-  const types = getAllConstructionTypes();
+export function getConstructionType(slug: string, locale: string = 'en'): ConstructionType | null {
+  const types = getAllConstructionTypes(locale);
   return types.find((t) => t.slug === slug) ?? null;
 }

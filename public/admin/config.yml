@@ -8,6 +8,12 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
+# Internationalization
+i18n:
+  structure: single_file
+  locales: [en, fr]
+  default_locale: en
+
 # Branding
 site_url: "https://pluswars.netlify.app"
 logo_url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext x='0' y='20' font-size='20' font-weight='bold'%3E⚡%3C/text%3E%3C/svg%3E"
@@ -15,18 +21,20 @@ logo_url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox=
 collections:
   - name: "pages"
     label: "Pages"
+    i18n: true
     files:
       - name: "home"
         label: "Home Page"
         file: "content/home.yaml"
         format: "yaml"
         fields:
-          - { name: "title", label: "Title", widget: "string" }
-          - { name: "subtitle", label: "Subtitle", widget: "string" }
-          - { name: "story", label: "Story", widget: "text" }
+          - { name: "title", label: "Title", widget: "string", i18n: true }
+          - { name: "subtitle", label: "Subtitle", widget: "string", i18n: true }
+          - { name: "story", label: "Story", widget: "text", i18n: true }
 
   - name: "construction_types"
     label: "Construction Types"
+    i18n: true
     files:
       - name: "types"
         label: "All Types"
@@ -37,10 +45,10 @@ collections:
             label: Types
             widget: list
             fields:
-              - { name: "name", label: "Name", widget: "string" }
+              - { name: "name", label: "Name", widget: "string", i18n: true }
               - { name: "slug", label: "Slug", widget: "string", hint: "URL-friendly identifier" }
               - { name: "image", label: "Preview Image", widget: "image" }
-              - { name: "description", label: "Description", widget: "text" }
+              - { name: "description", label: "Description", widget: "text", i18n: true }
 
   - name: "constructions"
     label: "Constructions"
@@ -49,6 +57,7 @@ collections:
     slug: "{{slug}}"
     extension: "yaml"
     format: "yaml"
+    i18n: true
     fields:
       - name: "type"
         label: "Type"
@@ -57,8 +66,8 @@ collections:
         search_fields: ["construction_types.*.name"]
         value_field: "construction_types.*.name"
         display_fields: ["construction_types.*.name"]
-      - { name: "title", label: "Title", widget: "string", required: false }
-      - { name: "description", label: "Description", widget: "text", required: false }
+      - { name: "title", label: "Title", widget: "string", required: false, i18n: true }
+      - { name: "description", label: "Description", widget: "text", required: false, i18n: true }
       - name: "images"
         label: "Images"
         widget: "list"
