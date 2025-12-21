@@ -3,9 +3,14 @@ local_backend: true
 backend:
   name: git-gateway
   branch: main
+  site_url: "https://pluswars.netlify.app"
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
+
+# Branding
+site_url: "https://pluswars.netlify.app"
+logo_url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext x='0' y='20' font-size='20' font-weight='bold'%3E⚡%3C/text%3E%3C/svg%3E"
 
 collections:
   - name: "pages"

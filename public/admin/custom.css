@@ -1,0 +1,507 @@
+/* Neo-Brutalist Admin Theme - Minimal & Clean */
+
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-text: #000;
+  --color-bg: #fff;
+  --color-bg-alt: #f5f5f5;
+}
+
+/* Force light theme */
+html {
+  color-scheme: light !important;
+}
+
+body {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* ===== REMOVE ALL COLORS ===== */
+
+/* Strip all colored backgrounds - hex, rgb, hsl, named colors */
+[style*="background"],
+[style*="background-color"],
+[style*="border-color"],
+[style*="color:"] {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: var(--color-text) !important;
+}
+
+/* Remove colored status badges */
+[class*="status"],
+[class*="Status"],
+[class*="badge"],
+[class*="Badge"],
+[class*="alert"],
+[class*="Alert"],
+[class*="info"],
+[class*="Info"],
+[class*="success"],
+[class*="Success"],
+[class*="warning"],
+[class*="Warning"],
+[class*="error"],
+[class*="Error"],
+[class*="danger"],
+[class*="Danger"] {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: #000 !important;
+  color: var(--color-text) !important;
+  box-shadow: none !important;
+}
+
+/* Notifications/toasts - white background with black text for readability */
+[class*="notification"],
+[class*="Notification"],
+[class*="toast"],
+[class*="Toast"],
+[class*="message"],
+[class*="Message"] {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: var(--color-text) !important;
+}
+
+/* Remove colors on hover and active states */
+[style*="background"]:hover,
+[style*="background-color"]:hover,
+[style*="color:"]:hover,
+[style*="background"]:active,
+[style*="background-color"]:active,
+[style*="color:"]:active,
+[style*="background"]:focus,
+[style*="background-color"]:focus,
+[style*="color:"]:focus {
+  background-color: var(--color-bg-alt) !important;
+  background-image: none !important;
+  border-color: #000 !important;
+  color: var(--color-text) !important;
+  box-shadow: none !important;
+}
+
+/* Override Decap CSS variables */
+* {
+  --clr-primary: #000 !important;
+  --clr-success: transparent !important;
+  --clr-danger: transparent !important;
+  --clr-warning: transparent !important;
+  --clr-info: transparent !important;
+}
+
+/* ===== TEXT & COLORS ===== */
+
+/* All text black */
+* {
+  color: var(--color-text) !important;
+}
+
+/* Labels - ensure black text, no blue */
+label,
+[for],
+[class*="FieldLabel"],
+[class*="fieldLabel"] {
+  color: var(--color-text) !important;
+  background-color: transparent !important;
+}
+
+/* Links - no underline on hover */
+a {
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+/* ===== BUTTONS ===== */
+
+/* All buttons */
+button,
+[role="button"] {
+  color: var(--color-text) !important;
+  background-color: var(--color-bg) !important;
+}
+
+/* Button hover - subtle gray background */
+button:hover,
+[role="button"]:hover {
+  background-color: var(--color-bg-alt) !important;
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+/* Primary/action buttons - inverse style */
+button[class*="primary"],
+button[class*="Primary"],
+.nc-button-primary,
+button[class*="publish"],
+button[class*="Publish"],
+button[class*="save"],
+button[class*="Save"],
+button[class*="submit"],
+button[class*="Submit"] {
+  background-color: #000 !important;
+  color: #ffffff !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+}
+
+/* Ensure nested elements inherit white text */
+button[class*="primary"] *,
+button[class*="Primary"] *,
+.nc-button-primary *,
+button[class*="publish"] *,
+button[class*="Publish"] *,
+button[class*="save"] *,
+button[class*="Save"] *,
+button[class*="submit"] *,
+button[class*="Submit"] * {
+  color: #ffffff !important;
+}
+
+button[class*="primary"]:hover,
+button[class*="Primary"]:hover,
+.nc-button-primary:hover,
+button[class*="publish"]:hover,
+button[class*="Publish"]:hover,
+button[class*="save"]:hover,
+button[class*="Save"]:hover,
+button[class*="submit"]:hover,
+button[class*="Submit"]:hover {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+  box-shadow: none !important;
+}
+
+button[class*="primary"]:hover *,
+button[class*="Primary"]:hover *,
+.nc-button-primary:hover *,
+button[class*="publish"]:hover *,
+button[class*="Publish"]:hover *,
+button[class*="save"]:hover *,
+button[class*="Save"]:hover *,
+button[class*="submit"]:hover *,
+button[class*="Submit"]:hover * {
+  color: #ffffff !important;
+}
+
+/* New/Upload/Collection buttons - high contrast black background, white text */
+button[class*="new"],
+button[class*="New"],
+button[aria-label*="new"],
+button[aria-label*="New"],
+button[class*="upload"],
+button[class*="Upload"],
+button[aria-label*="upload"],
+button[aria-label*="Upload"],
+a[class*="CollectionTopNewButton"],
+button[class*="CollectionTopNewButton"] {
+  background-color: #000 !important;
+  color: #ffffff !important;
+  border: 2px solid #000 !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure text stays white - override any nested spans/divs */
+button[class*="new"] *,
+button[class*="New"] *,
+button[aria-label*="new"] *,
+button[aria-label*="New"] *,
+button[class*="upload"] *,
+button[class*="Upload"] *,
+button[aria-label*="upload"] *,
+button[aria-label*="Upload"] *,
+a[class*="CollectionTopNewButton"] *,
+button[class*="CollectionTopNewButton"] * {
+  color: #ffffff !important;
+}
+
+button[class*="new"]:hover,
+button[class*="New"]:hover,
+button[aria-label*="new"]:hover,
+button[aria-label*="New"]:hover,
+button[class*="upload"]:hover,
+button[class*="Upload"]:hover,
+button[aria-label*="upload"]:hover,
+button[aria-label*="Upload"]:hover,
+a[class*="CollectionTopNewButton"]:hover,
+button[class*="CollectionTopNewButton"]:hover {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 2px solid #1a1a1a !important;
+}
+
+button[class*="new"]:hover *,
+button[class*="New"]:hover *,
+button[aria-label*="new"]:hover *,
+button[aria-label*="New"]:hover *,
+button[class*="upload"]:hover *,
+button[class*="Upload"]:hover *,
+button[aria-label*="upload"]:hover *,
+button[aria-label*="Upload"]:hover *,
+a[class*="CollectionTopNewButton"]:hover *,
+button[class*="CollectionTopNewButton"]:hover * {
+  color: #ffffff !important;
+}
+
+/* ===== ICONS ===== */
+
+svg {
+  color: var(--color-text) !important;
+}
+
+svg path,
+svg circle,
+svg rect {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+button svg:hover,
+[role="button"]:hover svg {
+  color: var(--color-text) !important;
+}
+
+/* ===== SIDEBAR ===== */
+
+/* Sidebar and navigation items */
+[class*="sidebar"],
+[class*="Sidebar"],
+[class*="nav"],
+[class*="Nav"] {
+  background-color: var(--color-bg) !important;
+}
+
+/* Sidebar menu items - light gray hover instead of blue */
+[class*="sidebar"] a,
+[class*="Sidebar"] a,
+[class*="sidebar"] [role="button"],
+[class*="Sidebar"] [role="button"],
+[class*="sidebar"] li,
+[class*="Sidebar"] li {
+  color: var(--color-text) !important;
+  border-left-color: transparent !important;
+}
+
+[class*="sidebar"] a:hover,
+[class*="Sidebar"] a:hover,
+[class*="sidebar"] [role="button"]:hover,
+[class*="Sidebar"] [role="button"]:hover,
+[class*="sidebar"] li:hover,
+[class*="Sidebar"] li:hover {
+  background-color: var(--color-bg-alt) !important;
+  color: var(--color-text) !important;
+  border-left-color: transparent !important;
+}
+
+/* Active sidebar item - black left border instead of blue */
+a[class*="SidebarNavLink"][class*="active"],
+a[class*="sidebar-active"],
+[class*="sidebar"] a[aria-current="page"] {
+  border-left-color: #000 !important;
+  border-left: 4px solid #000 !important;
+}
+
+/* ===== EDITOR NAVBAR TABS ===== */
+
+/* Header navigation links (Contents, Media, etc.) - light gray hover */
+a[class*="header-link"],
+a[aria-current="page"],
+[class*="AppHeaderNavLink"]:hover {
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+}
+
+a[class*="header-link"]:hover,
+a[aria-current="page"]:hover,
+[class*="AppHeaderNavLink"]:hover {
+  background-color: var(--color-bg-alt) !important;
+  color: var(--color-text) !important;
+}
+
+/* ===== LIST ITEMS ===== */
+
+/* Collection list items (entries) - light gray hover */
+a[class*="ListCardLink"],
+a[class*="listcard"],
+[class*="card-link"] {
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+}
+
+a[class*="ListCardLink"]:hover,
+a[class*="listcard"]:hover,
+[class*="card-link"]:hover {
+  background-color: var(--color-bg-alt) !important;
+  color: var(--color-text) !important;
+}
+
+/* ===== TABS & MENUS ===== */
+
+[role="tab"] {
+  color: var(--color-text) !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+[role="tab"]:hover {
+  background-color: var(--color-bg-alt) !important;
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+  border-color: transparent !important;
+}
+
+[role="tab"][aria-selected="true"] {
+  background-color: #000 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-color: #000 !important;
+}
+
+[role="tab"][aria-selected="true"]:hover {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+[role="menu"],
+[role="listbox"],
+.menu {
+  background-color: var(--color-bg) !important;
+}
+
+[role="menuitem"],
+[role="option"] {
+  color: var(--color-text) !important;
+}
+
+[role="menuitem"]:hover,
+[role="option"]:hover {
+  background-color: var(--color-bg-alt) !important;
+  text-decoration: none !important;
+}
+
+/* ===== EDITABLE BLOCKS ===== */
+
+/* Form inputs and contenteditable - dark border instead of blue */
+input:focus,
+textarea:focus,
+[contenteditable]:focus {
+  outline-color: #000 !important;
+  outline: 2px solid #000 !important;
+  border-color: #000 !important;
+}
+
+/* ===== FINAL COLOR CLEANUP ===== */
+
+/* Strip colored box-shadows (but preserve focus/selected borders) */
+div:not(:focus):not(:focus-visible),
+span:not(:focus):not(:focus-visible),
+input:not(:focus),
+textarea:not(:focus),
+[contenteditable]:not(:focus) {
+  box-shadow: none !important;
+}
+
+/* Strip any remaining colored text in divs/spans/etc */
+div[style*="color"],
+span[style*="color"],
+p[style*="color"],
+div[style*="background"],
+span[style*="background"],
+p[style*="background"] {
+  color: var(--color-text) !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+/* ===== HIDE ELEMENTS ===== */
+
+/* Hide View Live button */
+[aria-label="View live site"],
+[title="View live site"],
+button[title*="live"] {
+  display: none !important;
+}
+
+/* Hide Quick Changes */
+[class*="quick"],
+[class*="Quick"],
+[aria-label*="quick"],
+[aria-label*="Quick"] {
+  display: none !important;
+}
+
+/* Hide logout/user profile icons, keep text */
+button[aria-label*="logout"] svg,
+button[aria-label*="Logout"] svg,
+button[aria-label*="user"] svg,
+button[aria-label*="User"] svg,
+button[aria-label*="account"] svg,
+button[aria-label*="Account"] svg,
+button[aria-label*="profile"] svg,
+button[aria-label*="Profile"] svg,
+button[class*="logout"] svg,
+button[class*="Logout"] svg,
+button[class*="user"] svg,
+button[class*="User"] svg,
+button[class*="account"] svg,
+button[class*="Account"] svg,
+button[class*="profile"] svg,
+button[class*="Profile"] svg,
+[class*="logout"] svg,
+[class*="Logout"] svg,
+[class*="user"] svg,
+[class*="User"] svg,
+[class*="account"] svg,
+[class*="Account"] svg,
+[class*="profile"] svg,
+[class*="Profile"] svg,
+/* Hide SVGs with user profile fill color */
+svg[fill="#1E2532"],
+svg[fill="#1e2532"] {
+  display: none !important;
+}
+
+/* Hide SVGs in header/navbar that might be user icons */
+header svg[width="32"],
+header svg[height="32"],
+nav svg[width="32"],
+nav svg[height="32"] {
+  display: none !important;
+}
+
+/* Hide user profile icon SVG everywhere */
+svg[fill="#1E2532"],
+svg[fill="#1e2532"] {
+  display: none !important;
+}
+
+/* Style ONLY logout button's icon wrapper as black dot */
+[class*="AvatarDropdownButton"] [class*="IconWrapper"],
+button[aria-label*="user"] [class*="IconWrapper"],
+button[aria-label*="User"] [class*="IconWrapper"],
+button[aria-label*="account"] [class*="IconWrapper"],
+button[aria-label*="Account"] [class*="IconWrapper"],
+button[aria-label*="profile"] [class*="IconWrapper"],
+button[aria-label*="Profile"] [class*="IconWrapper"],
+button[aria-label*="logout"] [class*="IconWrapper"],
+button[aria-label*="Logout"] [class*="IconWrapper"],
+button[aria-label*="sign out"] [class*="IconWrapper"],
+button[aria-label*="Sign out"] [class*="IconWrapper"] {
+  background-color: #000 !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 12px !important;
+}
