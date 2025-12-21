@@ -22,7 +22,7 @@ export default function ConstructionTypeCard({ type }: Props) {
         </div>
         <div className="p-4">
           <h3 className="text-lg font-bold">{type.name}</h3>
-          <p className="text-sm text-gray-600 mt-2">{type.description}</p>
+          <p className="text-sm text-gray-600 mt-2 line-clamp-1">{type.description}</p>
         </div>
       </div>
     </Link>
