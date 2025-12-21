@@ -1,98 +1,119 @@
-# ALN - Modernisation du site Armor Loisirs Nautiques
+# PlusWars
 
-## Cadrage du projet
-
-Ce projet a pour objectif d’explorer la création d’une version modernisée du site actuel d’Armor Loisirs Nautiques.  
-Il s’agit d’un exercice technique, avec un focus sur la rapidité, l’efficacité et l’amélioration de l’expérience de gestion de contenu.
-
-### 🎯 Objectifs du projet
-
-- Proposer une structure moderne, plus simple à maintenir.
-- Améliorer la présentation des offres et services.
-- Faciliter l’évolution future du contenu (offres, balades, ventes).
-- Explorer comment l’IA peut accélérer le développement et la migration.
+**PlusWars** is a non-commercial, public project showcasing physical creations made with [Plus-Plus®](https://www.plus-plus.com/) by a young builder. The goal is to organize, document, and present different types of builds (spacecraft, vehicles, transformers, etc.) through a minimal, multilingual static website.
 
 ---
 
-### 🔍 Analyse du site actuel
+## 🧱 Project Goals
 
-#### Points forts
-
-- **Clarté immédiate de l’offre** : l’utilisateur comprend rapidement ce qui est proposé (balades, locations, ventes, services).
-- **Ton humain et chaleureux** : la communication est directe, personnelle et inspire confiance.
-- **Réservation externalisée** : l’intégration avec MyRezApp est simple et fiable.
-- **Preuves de sérieux** : les nombreuses ventes passées renforcent la crédibilité de l’activité.
-- **Présentation personnelle de qualité** : la page “Qui je suis” donne une dimension authentique et professionnelle.
-
-#### Axes d’amélioration
-
-- **Gestion de contenu difficile** : les pages reposent sur du texte libre, sans structure permettant de gérer facilement les offres ou les annonces.
-- **Visibilité limitée** : peu d’optimisation SEO locale, pas de mise en avant d’avis, et peu de contenu illustré.
-- **Mise en page minimaliste** : l’information est présente mais pourrait être mieux hiérarchisée et valorisée.
-- **Manque de modularité** : pas de modèles pour les balades, locations, services ou bateaux en vente, ce qui complique les mises à jour.
-- **Page photos sous-exploitée** : alors que de nombreuses images existent ailleurs (réseaux sociaux, Office du tourisme).
-- **Usage vidéo limité** : le site tirerait profit d’une intégration vidéo simple et gérable pour le client.
+- Present and archive Plus-Plus builds in themed galleries
+- Provide a clean and responsive front-end
+- Use internationalisation to support French and English content
+- Keep the site easy to maintain over time
 
 ---
 
-### 🧰 Choix techniques
+## 🎨 Design & Visual Identity
 
-#### **Next.js**
+This project is based on the **[Neo‑Brutalism.dev](https://www.neobrutalism.dev)** design system, using the open-source **Windowed Portfolio** template as a visual starting point. The bold, high-contrast layout is adapted to showcase physical creations in a playful and expressive way.
 
-- Framework moderne, stable et largement adopté.
-- Routing clair et intuitif, adapté à un site vitrine.
-- Excellente prise en charge du rendu statique et des performances.
-
-#### **Material UI (MUI)**
-
-- Large collection de composants fiables et éprouvés.
-- Design cohérent, accessible et facilement personnalisable.
-- Permet de reproduire rapidement un layout simple et familier.
-
-#### **Decap CMS (ex-Netlify CMS)**
-
-- Interface d’admin accessible via navigateur, sans installation.
-- Édition du contenu via formulaires, sans toucher au code.
-- Fonctionne entièrement avec des fichiers Markdown versionnés dans Git.
-- Déploiement automatisé et transparent pour le client.
-
-#### **Déploiement sur Netlify ou Vercel**
-
-- Hébergement gratuit ou très peu coûteux.
-- Builds automatiques à chaque mise à jour du contenu.
-- Infrastructure fiable, sans serveur ni base de données à maintenir.
+Additional components and interactive elements are built using **shadcn/ui**.
 
 ---
 
-### 📦 Contenu du dépôt
+## 🔧 Tech Stack
 
-- `content/raw/` : extraction du texte actuel du site (pour préparation des futurs modèles de données).
-- Code source à venir lors des prochaines étapes d'exploration.
+| Purpose               | Tech                                                         |
+| --------------------- | ------------------------------------------------------------ |
+| Static site           | [Next.js](https://nextjs.org/)                               |
+| Styling               | [Tailwind CSS](https://tailwindcss.com/)                     |
+| UI components         | [shadcn/ui](https://ui.shadcn.dev/)                          |
+| Visual template       | [Windowed Portfolio](https://www.neobrutalism.dev/templates) |
+| Hosting               | [Netlify](https://www.netlify.com/)                          |
+| CMS (future)          | [Decap CMS](https://decapcms.org/)                           |
+| i18n (planned)        | `next-i18next`                                               |
+| AI dev tooling        | [Claude Code](https://www.anthropic.com/index/claude-code)   |
+| Repository visibility | Public, non-commercial                                       |
 
 ---
 
-### 🚧 Statut du projet
+## 📂 Site Structure
 
-Expérimentation en cours — objectif : produire rapidement une structure moderne, réutilisable et évolutive.
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+| Route | Purpose |
+| --- | --- |
+| `/` | Home (landing page) with a title, subtitle, and story |
+| `/constructions` | Lists all ConstructionTypes as "windows"/cards |
+| `/constructions/[slug]` | Lists all Constructions of a given type, each with description + photos |
 
 ---
 
-## Getting Started with Next.js
+## 🗃 Data Model
 
-First, run the development server:
+### 🏠 Home Page
+- `title` (string) — Site title
+- `subtitle` (string) — Subtitle/tagline
+- `story` (string) — Main narrative text
 
-```bash
-pnpm dev
-```
+Stored as a single minimal file (e.g., `home.yaml` or `home.md`).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🧩 ConstructionType
+Each represents a category of builds (e.g., "Spinning Tops", "Transformers").
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- `name` (string) — Unique identifier, used as slug
+- `image` (file) — One preview image for the category card
+- `description` (string) — Short introduction to the category
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Can be stored as one file per type or as a list in `content/construction-types.yaml`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### ⚙️ Construction
+Each individual build, linked to a ConstructionType.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `type` (string) — Reference to ConstructionType name (required)
+- `images` (array, ≤10 files) — Photos of the creation
+- `description` (string) — Freeform text about the build
+
+Stored as YAML/Markdown in `content/constructions/` folder.
+
+---
+
+## 📋 Implementation Notes
+
+- All entries can be stored in Markdown or YAML format
+- Ideal for **Decap CMS** integration: minimal fields, optional preview images
+- Assets are stored under `public/uploads/` (Netlify-compatible)
+- `Construction.type` can be enforced with a dropdown in Decap CMS for data integrity
+- No strict database required — content is version-controlled in the repo
+
+---
+
+## 🧠 Development Guidelines
+
+This project uses **Claude Code** with structured agents:
+
+| Agent   | Role                                                           |
+| ------- | -------------------------------------------------------------- |
+| `quick` | Small changes, fast edits, local patches (Haiku)               |
+| `deep`  | Structural updates, refactors, architecture decisions (Sonnet) |
+
+Global Claude rules are stored in `.claude/CLAUDE.md`.
+
+---
+
+## 🚀 Deployment
+
+- Deployed via Netlify (static export)
+- All content lives in the repo
+- Assets (images) are stored under `public/uploads/`
+
+---
+
+## 🔜 Planned Features
+
+- Multilingual content (EN/FR)
+
+---
+
+## ⚠️ Legal Note
+
+**PlusWars** is not affiliated with or endorsed by Plus-Plus®.  
+This is a personal showcase project created for educational and creative purposes.
