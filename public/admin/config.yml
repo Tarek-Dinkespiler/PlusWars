@@ -3,6 +3,7 @@ local_backend: true
 backend:
   name: github
   branch: main
+  repo: seemlesscode/PlusWars
   site_url: "https://pluswars.netlify.app"
 
 media_folder: "public/uploads"
