@@ -18,7 +18,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = locales.flatMap((locale) =>
     types.map((type) => ({
-      params: { slug: type.slug },
+      params: { type: type.slug },
       locale,
     }))
   );
@@ -30,8 +30,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params, locale = 'en' }) => {
-  const slug = params?.slug as string;
-  const type = getConstructionType(slug, locale);
+  const typeSlug = params?.type as string;
+  const type = getConstructionType(typeSlug, locale);
 
   if (!type) {
     return { notFound: true };
@@ -77,7 +77,7 @@ export default function ConstructionTypePage({ type, constructions }: Props) {
       {constructions.length > 0 ? (
         <section className="space-y-6">
           <h2 className="text-2xl font-bold dark:text-[#f5f5f5]">
-            {constructions.length} {constructions.length === 1 ? t('common:allConstructions') : t('common:allConstructions')}
+            Gallery
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -85,6 +85,7 @@ export default function ConstructionTypePage({ type, constructions }: Props) {
               <ConstructionCard
                 key={construction.slug}
                 construction={construction}
+                typeSlug={type.slug}
               />
             ))}
           </div>

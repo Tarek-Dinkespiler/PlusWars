@@ -1,0 +1,13 @@
+types:
+  - name: Spinning Tops
+    slug: spinning-tops
+    image: /uploads/st-1.jpg
+    description: Balancing and rotating creations
+  - name: Transformers
+    slug: transformers
+    image: /uploads/t-1.jpg
+    description: Shape-shifting mechanical creations
+  - name: Robots
+    slug: robots
+    image: /uploads/r-1.jpg
+    description: Robots

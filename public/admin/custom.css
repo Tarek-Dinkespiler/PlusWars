@@ -505,3 +505,21 @@ button[aria-label*="Sign out"] [class*="IconWrapper"] {
   justify-content: center !important;
   margin: 12px !important;
 }
+
+/* ===== HIDE COLLECTION ICONS ===== */
+
+/* Hide collection icons in sidebar/left panel */
+[class*="SidebarNavLink"] svg,
+[class*="sidebar"] [class*="icon"],
+[class*="sidebar"] [class*="Icon"],
+a[class*="NavLink"] svg:first-child,
+li[class*="collection"] svg:first-child {
+  display: none !important;
+}
+
+/* Hide collection icons in collection list */
+a[class*="ListCardLink"] svg:first-child,
+[class*="CollectionTop"] svg:first-child,
+[class*="collection-card"] svg:first-child {
+  display: none !important;
+}

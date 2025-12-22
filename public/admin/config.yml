@@ -8,66 +8,151 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-# Internationalization
-i18n:
-  structure: single_file
-  locales: [en, fr]
-  default_locale: en
-
 # Branding
 site_url: "https://pluswars.netlify.app"
 logo_url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext x='0' y='20' font-size='20' font-weight='bold'%3E⚡%3C/text%3E%3C/svg%3E"
 
+# Pages Section
 collections:
-  - name: "pages"
-    label: "Pages"
-    i18n: true
+  # English
+  - name: "pages_en"
+    label: "🇬🇧 Pages"
     files:
-      - name: "home"
+      - name: "home_en"
         label: "Home Page"
-        file: "content/home.yaml"
+        file: "content/pages/en/home.yaml"
         format: "yaml"
         fields:
-          - { name: "title", label: "Title", widget: "string", i18n: true }
-          - { name: "subtitle", label: "Subtitle", widget: "string", i18n: true }
-          - { name: "story", label: "Story", widget: "text", i18n: true }
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "subtitle", label: "Subtitle", widget: "string" }
+          - { name: "story", label: "Story", widget: "text" }
 
-  - name: "construction_types"
-    label: "Construction Types"
-    i18n: true
+  - name: "construction_types_en"
+    label: "🇬🇧 Construction Types"
     files:
-      - name: "types"
+      - name: "types_en"
         label: "All Types"
-        file: "content/construction-types.yaml"
+        file: "content/construction-types/en/types.yaml"
         format: "yaml"
         fields:
           - name: types
             label: Types
             widget: list
             fields:
-              - { name: "name", label: "Name", widget: "string", i18n: true }
-              - { name: "slug", label: "Slug", widget: "string", hint: "URL-friendly identifier" }
+              - { name: "name", label: "Name", widget: "string" }
+              - {
+                  name: "slug",
+                  label: "Slug",
+                  widget: "string",
+                  hint: "URL-friendly identifier",
+                }
               - { name: "image", label: "Preview Image", widget: "image" }
-              - { name: "description", label: "Description", widget: "text", i18n: true }
+              - { name: "description", label: "Description", widget: "text" }
 
-  - name: "constructions"
-    label: "Constructions"
-    folder: "content/constructions"
+  - name: "constructions_en"
+    label: "🇬🇧 Constructions"
+    folder: "content/constructions/en"
     create: true
     slug: "{{slug}}"
     extension: "yaml"
     format: "yaml"
-    i18n: true
     fields:
       - name: "type"
         label: "Type"
         widget: "relation"
-        collection: "construction_types"
-        search_fields: ["construction_types.*.name"]
-        value_field: "construction_types.*.name"
-        display_fields: ["construction_types.*.name"]
-      - { name: "title", label: "Title", widget: "string", required: false, i18n: true }
-      - { name: "description", label: "Description", widget: "text", required: false, i18n: true }
+        collection: "construction_types_en"
+        file: "types_en"
+        search_fields: ["types.*.name"]
+        value_field: "types.*.name"
+        display_fields: ["types.*.name"]
+      - { name: "title", label: "Title", widget: "string", required: false }
+      - {
+          name: "description",
+          label: "Description",
+          widget: "text",
+          required: false,
+        }
+      - {
+          name: "video",
+          label: "Video URL",
+          widget: "string",
+          required: false,
+          hint: "Cloudinary video URL",
+        }
+      - name: "images"
+        label: "Images"
+        widget: "list"
+        field: { name: image, label: Image, widget: image }
+
+  # French
+  - name: "pages_fr"
+    label: "🇫🇷 Pages"
+    files:
+      - name: "home_fr"
+        label: "Accueil"
+        file: "content/pages/fr/home.yaml"
+        format: "yaml"
+        fields:
+          - { name: "title", label: "Titre", widget: "string" }
+          - { name: "subtitle", label: "Sous-titre", widget: "string" }
+          - { name: "story", label: "Histoire", widget: "text" }
+
+  - name: "construction_types_fr"
+    label: "🇫🇷 Construction Types"
+    files:
+      - name: "types_fr"
+        label: "Tous les types"
+        file: "content/construction-types/fr/types.yaml"
+        format: "yaml"
+        fields:
+          - name: types
+            label: Types
+            widget: list
+            fields:
+              - { name: "name", label: "Nom", widget: "string" }
+              - {
+                  name: "slug",
+                  label: "Slug",
+                  widget: "string",
+                  hint: "Identifiant friendly pour URL",
+                }
+              - {
+                  name: "image",
+                  label: "Image de prévisualisation",
+                  widget: "image",
+                }
+              - { name: "description", label: "Description", widget: "text" }
+
+  - name: "constructions_fr"
+    label: "🇫🇷 Constructions"
+    folder: "content/constructions/fr"
+    create: true
+    slug: "{{slug}}"
+    extension: "yaml"
+    format: "yaml"
+    fields:
+      - name: "type"
+        label: "Type"
+        widget: "relation"
+        collection: "construction_types_fr"
+        file: "types_fr"
+        search_fields: ["types.*.name"]
+        value_field: "types.*.name"
+        display_fields: ["types.*.name"]
+      - { name: "title", label: "Titre", widget: "string", required: false }
+      - {
+          name: "description",
+          label: "Description",
+          widget: "text",
+          required: false,
+        }
+      - {
+          name: "video",
+          label: "URL Vidéo",
+          widget: "string",
+          required: false,
+          hint: "URL vidéo Cloudinary",
+        }
       - name: "images"
         label: "Images"
         widget: "list"
