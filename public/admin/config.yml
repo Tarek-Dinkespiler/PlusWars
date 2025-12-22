@@ -1,7 +1,7 @@
 local_backend: true
 
 backend:
-  name: git-gateway
+  name: github
   branch: main
   site_url: "https://pluswars.netlify.app"
 
