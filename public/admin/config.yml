@@ -5,6 +5,8 @@ backend:
   branch: main
   repo: seemlesscode/PlusWars
   site_url: "https://pluswars.netlify.app"
+  auth_scope: repo
+  client_id: "Ov23liQ9YT7CEBIDOwEL"
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
