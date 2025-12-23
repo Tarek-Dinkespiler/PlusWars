@@ -1,0 +1,13 @@
+types:
+  - name: Toupies
+    slug: toupies
+    image: /uploads/st-1.jpg
+    description: Créations tournoyantes et équilibrées
+  - name: Transformers
+    slug: transformers
+    image: /uploads/t-1.jpg
+    description: Créations mécaniques qui changent de forme
+  - name: Robots
+    slug: robots
+    image: /uploads/r-1.jpg
+    description: Robots
